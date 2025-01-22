@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="lcf-help"
+                 name="LoCyanFrp 帮助文档"
+                 start-page="配置文件.md">
+
+    <toc-element toc-title="面板">
+        <toc-element topic="仪表板.md"/>
+        <toc-element topic="身份认证.md"/>
+        <toc-element topic="签到.md"/>
+        <toc-element toc-title="隧道操作">
+            <toc-element topic="配置文件.md"/>
+            <toc-element topic="添加隧道.md"/>
+            <toc-element topic="隧道列表.md"/>
+        </toc-element>
+        <toc-element topic="赞助.md"/>
+        <toc-element topic="域名白名单.md"/>
+        <toc-element toc-title="游戏联机">
+            <toc-element topic="Minecraft.md"/>
+        </toc-element>
+        <toc-element toc-title="应用程序">
+            <toc-element topic="授权管理.md"/>
+            <toc-element topic="应用管理.md"/>
+        </toc-element>
+    </toc-element>
+    <toc-element topic="联系方式.md"/>
+    <toc-element topic="节点服务器监控.md"/>
+</instance-profile>

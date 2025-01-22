@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
+<rules>
+    <!-- format is as follows
+    <rule id="<unique id>">
+        <accepts>page.html</accepts>
+    </rule>
+    -->
+    <rule id="7baae060">
+        <description>Created after removal of "Empty MD Topic" from LoCyanFrp 帮助文档</description>
+        <accepts>Empty-MD-Topic.html</accepts>
+    </rule>
+    <rule id="75427935">
+        <description>Created after removal of "Starter" from LoCyanFrp 帮助文档</description>
+        <accepts>starter.html</accepts>
+    </rule>
+</rules>
