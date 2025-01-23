@@ -6,8 +6,17 @@
     <variables/>
     <build-profile instance="lcf-help">
         <variables>
-            <noindex-content>true</noindex-content>
+            <noindex-content>false</noindex-content>
+            <header-logo>https://www.locyanfrp.cn/favicon.ico</header-logo>
+            <custom-favicons>https://www.locyanfrp.cn/favicon.ico</custom-favicons>
         </variables>
     </build-profile>
+
+    <footer>
+        <link href="https://docs.locyanfrp.cn/api/">API</link>
+        <link href="https://github.com/LoCyan-Team/LoCyanFrpHelp">改进此文档</link>
+
+        <copyright>LoCyanTeam.</copyright>
+    </footer>
 
 </buildprofiles>
