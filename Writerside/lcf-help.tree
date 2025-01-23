@@ -4,16 +4,17 @@
 
 <instance-profile id="lcf-help"
                  name="LoCyanFrp 帮助文档"
-                 start-page="配置文件.md">
+                 start-page="首页.md">
 
+    <toc-element topic="首页.md"/>
     <toc-element toc-title="面板">
         <toc-element topic="仪表板.md"/>
         <toc-element topic="身份认证.md"/>
         <toc-element topic="签到.md"/>
         <toc-element toc-title="隧道操作">
-            <toc-element topic="配置文件.md"/>
-            <toc-element topic="添加隧道.md"/>
             <toc-element topic="隧道列表.md"/>
+            <toc-element topic="添加隧道.md"/>
+            <toc-element topic="配置文件.md"/>
         </toc-element>
         <toc-element topic="赞助.md"/>
         <toc-element topic="域名白名单.md"/>
