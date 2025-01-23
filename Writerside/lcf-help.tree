@@ -8,7 +8,7 @@
 
     <toc-element topic="首页.md"/>
     <toc-element toc-title="面板">
-        <toc-element topic="仪表板.md"/>
+        <toc-element topic="仪表盘.md"/>
         <toc-element topic="身份认证.md"/>
         <toc-element topic="签到.md"/>
         <toc-element toc-title="隧道操作">
