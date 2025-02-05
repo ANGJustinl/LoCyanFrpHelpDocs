@@ -22,8 +22,8 @@
             <toc-element topic="Minecraft.md"/>
         </toc-element>
         <toc-element toc-title="应用程序">
-            <toc-element topic="授权管理.md"/>
             <toc-element topic="应用管理.md"/>
+            <toc-element topic="授权管理.md"/>
         </toc-element>
     </toc-element>
     <toc-element topic="节点服务器监控.md"/>
