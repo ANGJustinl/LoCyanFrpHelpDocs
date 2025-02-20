@@ -10,6 +10,7 @@
         <toc-element toc-title="进程守护">
             <toc-element topic="使用-Supervisor-管理和守护进程.md"/>
             <toc-element topic="使用-Systemd-管理和守护进程.md"/>
+            <toc-element topic="使用-OpenRC-管理和守护进程.md"/>
         </toc-element>
     </toc-element>
     <toc-element topic="首页.md"/>
