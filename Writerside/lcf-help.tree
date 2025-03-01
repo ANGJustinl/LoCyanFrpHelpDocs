@@ -33,6 +33,10 @@
             <toc-element topic="使用-OpenRC-管理和守护进程.md"/>
         </toc-element>
     </toc-element>
+    <toc-element toc-title="节点">
+        <toc-element topic="节点流量审计限制.md"/>
+        <toc-element topic="捐赠节点.md"/>
+    </toc-element>
     <toc-element topic="节点服务器监控.md"/>
     <toc-element toc-title="定义">
         <toc-element topic="违规业务.md"/>
