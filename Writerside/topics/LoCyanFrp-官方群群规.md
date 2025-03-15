@@ -13,7 +13,7 @@
 
 - 文明交流讨论，禁止辱骂、威胁、开盒。
 - 没有人有义务回答你的问题，当你的问题没有任何人回答前，不妨先认真思考一下自己提的问题是否有意义。
-- https://lug.ustc.edu.cn/wiki/doc/smart-questions/
+- [提问的智慧](https://lug.ustc.edu.cn/wiki/doc/smart-questions/)
 
 违反上述规定的管理员视情形可禁言 `5分钟 ~ 24小时`，3次以上可直接踢出群聊。
 
