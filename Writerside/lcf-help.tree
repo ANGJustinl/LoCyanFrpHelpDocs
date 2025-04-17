@@ -42,7 +42,6 @@
         <toc-element topic="违规业务.md"/>
         <toc-element topic="大流量性质内容.md"/>
     </toc-element>
-    <toc-element topic="API.md"/>
     <toc-element topic="常见问题解决方案.md"/>
     <toc-element topic="联系方式.md">
         <toc-element topic="LoCyanFrp-官方群群规.md"/>

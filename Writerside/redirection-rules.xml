@@ -6,12 +6,4 @@
         <accepts>page.html</accepts>
     </rule>
     -->
-    <rule id="7baae060">
-        <description>Created after removal of "Empty MD Topic" from LoCyanFrp 帮助文档</description>
-        <accepts>Empty-MD-Topic.html</accepts>
-    </rule>
-    <rule id="75427935">
-        <description>Created after removal of "Starter" from LoCyanFrp 帮助文档</description>
-        <accepts>starter.html</accepts>
-    </rule>
 </rules>
