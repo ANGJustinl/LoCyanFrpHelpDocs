@@ -1,93 +1,118 @@
 # 使用 Systemd 管理和守护进程
 
-# 若从面板获取配置文件
-我们假设你的 Frpc 和配置文件在 `/opt/lcf/` 中，并在面板中配置了隧道
+本文档提供两种方式通过 Systemd 运行 Frpc，请根据你的配置方式二选一。
 
-## 给与 Frpc 运行权限
+## 方案一：从面板获取启动参数
 
+此方案适用于从 Web 面板获取 Token 和隧道 ID 的用户。
+
+### 1. 假设路径
+我们假设你的 `frpc` 可执行文件位于 `/opt/lcf/` 目录中，并在面板中配置了隧道。
+
+### 2. 授予执行权限
 ```sh
 chmod +x /opt/lcf/frpc
-```
+````
 
-## 写入系统服务
+### 3. 创建 Systemd 服务
 
-将以下内容写入以下目录 `.service` 后缀文件中，比如 `lcf-frpc@.service`
+将以下内容保存为 `.service` 文件（例如 `lcf-frpc@.service`），存放于以下任一目录：
 
-- /etc/systemd/system/
-- /usr/lib/systemd/system/
+  * `/etc/systemd/system/`
+  * `/usr/lib/systemd/system/`
+
+<!-- end list -->
 
 ```ini
 [Unit]
 Description=LoCyanFrp Client
 After=network.target
 
-
 [Service]
 Type=idle
-#DynamicUser=yes
 Restart=on-failure
 RestartSec=60s
-ExecStart=/bin/sh -c '/opt/lcf/frpc -u $(echo "%i" | cut -d ":" -f 1) -p $(echo "%i" | cut -d ":" -f 2)'
 WorkingDirectory=/opt/lcf
+ExecStart=/bin/sh -c '/opt/lcf/frpc -u $(echo "%i" | cut -d ":" -f 1) -p $(echo "%i" | cut -d ":" -f 2)'
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-请记住后续操作中用到的 Unit 名称 是 lcf-frpc@<启动参数>，例如 lcf-frpc@你的token:隧道号
+> **注意**：后续操作中，Systemd Unit 名称的格式为 `lcf-frpc@<Token>:<隧道ID>.service`。
 
-## 启动并设置自动启动
-例如你的token是1919810 想要启动的隧道号是114514则:
+### 4\. 启动并设置开机自启
+
+例如，若 Token 为 `1919810`，隧道号为 `114514`，则执行：
 
 ```sh
+# 启动并立即启用开机自启
 systemctl enable lcf-frpc@1919810:114514.service --now
 
 # 查看运行状态
 systemctl status lcf-frpc@1919810:114514.service
-# 查看更详细的日志
-#jouralctl -aeu lcf-frpc@1919810:114514.service
+
+# 查看详细日志
+# journalctl -aeu lcf-frpc@1919810:114514.service
 ```
 
-# 若使用自定义的frpc.ini配置文件
+-----
 
-我们假设你的 Frpc 和配置文件在 `/opt/lcf/` 中，配置文件名为 `frpc.ini`
+## 方案二：使用自定义 `frpc.ini` 配置文件
 
-## 给与 Frpc 运行权限
+此方案适用于使用本地 `frpc.ini` 完整配置文件的用户。
+
+### 1\. 假设路径
+
+假设 `frpc` 可执行文件和配置文件（例如 `frpc.ini`）均位于 `/opt/lcf/` 目录中。
+
+### 2\. 授予执行权限
 
 ```sh
 chmod +x /opt/lcf/frpc
 ```
 
-## 写入系统服务
+### 3\. 创建 Systemd 服务
 
-将以下内容写入以下目录任意 `.service` 后缀文件中，比如 `lcf-frpc.service`
+将以下内容保存为 `.service` 文件（例如 `lcf-frpc.service`），存放于以下任一目录：
 
-- /etc/systemd/system/
-- /usr/lib/systemd/system/
+  * `/etc/systemd/system/`
+  * `/usr/lib/systemd/system/`
+
+<!-- end list -->
 
 ```ini
 [Unit]
 Description=LoCyanFrp Client
+After=network.target
 
 [Service]
+Type=simple
+Restart=on-failure
+RestartSec=5s
 WorkingDirectory=/opt/lcf/
-ExecStart=/opt/lcf/frpc
-# 如果你的配置文件名不为 frpc.ini，请手动使用 -c 指定：
-#ExecStart=/opt/lcf/frpc -c config.ini
+ExecStart=/opt/lcf/frpc -c ./frpc.ini
+
+# 如果你的配置文件名不是 frpc.ini，请修改上面一行的 -c 参数，例如：
+# ExecStart=/opt/lcf/frpc -c ./config.ini
 
 [Install]
-WantedBy=network.target
+WantedBy=multi-user.target
 ```
 
-## 启动并设置自动启动
+### 4\. 启动并设置开机自启
 
 ```sh
+# 启动并立即启用开机自启
 systemctl enable lcf-frpc.service --now
 
 # 查看运行状态
 systemctl status lcf-frpc.service
-# 查看更详细的日志
-#jouralctl -aeu lcf-frpc.service
+
+# 查看详细日志
+# journalctl -aeu lcf-frpc.service
 ```
+
+-----
 
 更多管理命令，请参阅: [Linux 中国: systemctl 命令完全指南](https://linux.cn/article-5926-1.html)
